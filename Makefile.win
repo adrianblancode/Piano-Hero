@@ -1,0 +1,63 @@
+# Project: Piano Hero
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = bin/main.o bin/las.o bin/skriv.o bin/sort.o bin/verify.o bin/debugg.o bin/drawnotes.o bin/initnotes.o bin/midiin.o bin/filelenght.o bin/intro.o bin/initmidi.o $(RES)
+LINKOBJ  = bin/main.o bin/las.o bin/skriv.o bin/sort.o bin/verify.o bin/debugg.o bin/drawnotes.o bin/initnotes.o bin/midiin.o bin/filelenght.o bin/intro.o bin/initmidi.o $(RES)
+LIBS =  -L"lib" ../../../../Dev-Cpp/lib/liballeg.a ../../../../Dev-Cpp/lib/libfmod.a ../../../../Dev-Cpp/lib/libwinmm.a   
+INCS =  -I"include" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+BIN  = pianohero.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before pianohero.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "pianohero.exe" $(LIBS)
+
+bin/main.o: bin/main.c
+	$(CC) -c bin/main.c -o bin/main.o $(CFLAGS)
+
+bin/las.o: bin/las.c
+	$(CC) -c bin/las.c -o bin/las.o $(CFLAGS)
+
+bin/skriv.o: bin/skriv.c
+	$(CC) -c bin/skriv.c -o bin/skriv.o $(CFLAGS)
+
+bin/sort.o: bin/sort.c
+	$(CC) -c bin/sort.c -o bin/sort.o $(CFLAGS)
+
+bin/verify.o: bin/verify.c
+	$(CC) -c bin/verify.c -o bin/verify.o $(CFLAGS)
+
+bin/debugg.o: bin/debugg.c
+	$(CC) -c bin/debugg.c -o bin/debugg.o $(CFLAGS)
+
+bin/drawnotes.o: bin/drawnotes.c
+	$(CC) -c bin/drawnotes.c -o bin/drawnotes.o $(CFLAGS)
+
+bin/initnotes.o: bin/initnotes.c
+	$(CC) -c bin/initnotes.c -o bin/initnotes.o $(CFLAGS)
+
+bin/midiin.o: bin/midiin.c
+	$(CC) -c bin/midiin.c -o bin/midiin.o $(CFLAGS)
+
+bin/filelenght.o: bin/filelenght.c
+	$(CC) -c bin/filelenght.c -o bin/filelenght.o $(CFLAGS)
+
+bin/intro.o: bin/intro.c
+	$(CC) -c bin/intro.c -o bin/intro.o $(CFLAGS)
+
+bin/initmidi.o: bin/initmidi.c
+	$(CC) -c bin/initmidi.c -o bin/initmidi.o $(CFLAGS)
